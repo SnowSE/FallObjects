@@ -1,0 +1,91 @@
+﻿@page "/"
+@rendermode InteractiveServer
+
+<PageTitle>Home</PageTitle>
+
+
+
+<style>
+    body, .gradient-bg {
+        min-height: 100vh;
+        margin: 0;
+        padding: 0;
+        background: linear-gradient(135deg, #ff512f 0%, #dd2476 40%, #1fa2ff 100%);
+        background-attachment: fixed;
+    }
+    .calc-container {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.7rem;
+        max-width: 300px;
+        margin: 3rem auto;
+        padding: 2rem 2.5rem;
+        border: 2px solid #fff;
+        border-radius: 16px;
+        background: rgba(255,255,255,0.90);
+        box-shadow: 0 4px 24px rgba(106,17,203,0.10);
+    }
+    .calc-container input[type="text"] {
+        padding: 0.5rem 0.7rem;
+        border: 2px solid #2575fc;
+        border-radius: 6px;
+        font-size: 1.1rem;
+        width: 100%;
+        box-sizing: border-box;
+        background: #e3f0ff;
+        color: #1a237e;
+        transition: border 0.2s, box-shadow 0.2s;
+    }
+    .calc-container input[type="text"]:focus {
+        border: 2px solid #6a11cb;
+        box-shadow: 0 0 6px #6a11cb44;
+        outline: none;
+    }
+    .calc-container button {
+        padding: 0.5rem 1.2rem;
+        background: linear-gradient(90deg, #ff512f 0%, #dd2476 100%);
+        color: #fff;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 1.1rem;
+        font-weight: 600;
+        letter-spacing: 1px;
+        box-shadow: 0 2px 8px #ff512f22;
+        transition: background 0.2s, transform 0.1s;
+    }
+    .calc-container button:hover {
+        background: linear-gradient(90deg, #ff512f 0%, #6a11cb 100%);
+        transform: translateY(-2px) scale(1.04);
+    }
+    .calc-result {
+        margin-top: 0.7rem;
+        font-weight: bold;
+        color: #dd2476;
+        font-size: 1.2rem;
+        text-shadow: 0 1px 4px #fff2;
+    }
+</style>
+
+<div class="gradient-bg">
+    <div class="calc-container">
+        <input type="text" @bind="num1" placeholder="First number" />
+        <input type="text" @bind="num2" placeholder="Second number" />
+        <button @onclick="Clicked">Add</button>
+        <div class="calc-result">@result</div>
+    </div>
+</div>
+
+@code {
+
+    double num1 = 0;
+    double num2 = 0;
+    double result = 0;
+
+    void Clicked()
+    {
+        result = num1 + num2;
+    }
+
+}
