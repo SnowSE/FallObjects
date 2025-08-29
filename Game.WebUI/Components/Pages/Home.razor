@@ -78,6 +78,7 @@
 </div>
 
 @code {
+    bool zero = false;
 
     double num1 = 0;
     double num2 = 0;
@@ -85,7 +86,15 @@
 
     void Clicked()
     {
+        if (zero)
+        {
+            return;
+        }
         result = num1 + num2;
+
+        if (result == 0){
+            zero = true;
+        }
     }
 
 }
