@@ -70,31 +70,21 @@
 
 <div class="gradient-bg">
     <div class="calc-container">
-        <input type="text" @bind="num1" placeholder="First number" />
-        <input type="text" @bind="num2" placeholder="Second number" />
+        <input type="text" @bind="guess" placeholder="guess a number" />
         <button @onclick="Clicked">Add</button>
         <div class="calc-result">@result</div>
     </div>
 </div>
 
 @code {
-    bool zero = false;
 
-    double num1 = 0;
-    double num2 = 0;
-    double result = 0;
+    int guess = 0;
+    string result = "";
+
+    GuessingGame game = new GuessingGame();
 
     void Clicked()
     {
-        if (zero)
-        {
-            return;
-        }
-        result = num1 + num2;
-
-        if (result == 0){
-            zero = true;
-        }
+        result = game.Guess(guess);
     }
-
 }
