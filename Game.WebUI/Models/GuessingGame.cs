@@ -1,4 +1,4 @@
-
+namespace Game.Models;
 
 public class GuessingGame
 {
@@ -16,16 +16,17 @@ public class GuessingGame
         CorrectNumber = initial;
     }
 
-    public string Guess(int value)
+    public GuessResult Guess(int value)
     {
-        string retval = "correct";
+        GuessResult retval = GuessResult.Correct; 
+        
         if (value > CorrectNumber)
         {
-            retval = "higher";
+            retval = GuessResult.TooHigh;
         }
         if (value < CorrectNumber)
         {
-            retval = "lower";
+            retval = GuessResult.TooLow;
         }
         return retval;
     }

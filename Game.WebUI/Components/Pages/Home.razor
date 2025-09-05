@@ -1,5 +1,6 @@
 ﻿@page "/"
 @rendermode InteractiveServer
+@using Game.Models
 
 <PageTitle>Home</PageTitle>
 
@@ -70,6 +71,12 @@
 
 <div class="gradient-bg">
     <div class="calc-container">
+        <select>
+            @foreach(GuessResult val in Enum.GetValues(typeof(GuessResult))) {
+            <option value="@((int)val)">@val</option>
+            }   
+        </select>
+
         <input type="text" @bind="guess" placeholder="guess a number" />
         <button @onclick="Clicked">Add</button>
         <div class="calc-result">@result</div>
@@ -85,6 +92,8 @@
 
     void Clicked()
     {
-        result = game.Guess(guess);
+        result = game.Guess(guess).ToString();
     }
+
+
 }
