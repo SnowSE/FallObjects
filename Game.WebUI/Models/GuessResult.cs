@@ -1,9 +1,10 @@
 namespace Game.Models;
 
-    public enum GuessResult
-    {
-        Indeterminate,
-        TooLow,
-        TooHigh,
-        Correct
-    }
+public enum GuessResult
+{
+    Indeterminate = 13,
+    TooLow,
+    TooHigh,
+    Correct,
+    TooManyGuess = 57,
+}

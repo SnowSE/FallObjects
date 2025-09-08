@@ -71,7 +71,7 @@
 
 <div class="gradient-bg">
     <div class="calc-container">
-        <select>
+        <select @bind="selectedResult">
             @foreach(GuessResult val in Enum.GetValues(typeof(GuessResult))) {
             <option value="@((int)val)">@val</option>
             }   
@@ -80,11 +80,13 @@
         <input type="text" @bind="guess" placeholder="guess a number" />
         <button @onclick="Clicked">Add</button>
         <div class="calc-result">@result</div>
+        <div class="calc-result">@selectedResult</div>
     </div>
 </div>
 
 @code {
 
+    int selectedResult = 0;
     int guess = 0;
     string result = "";
 
