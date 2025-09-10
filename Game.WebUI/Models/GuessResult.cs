@@ -2,6 +2,7 @@ namespace Game.Models;
 
 public enum GuessResult
 {
+    Unknown,
     Indeterminate = 13,
     TooLow,
     TooHigh,

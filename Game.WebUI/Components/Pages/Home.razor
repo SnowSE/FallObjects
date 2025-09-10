@@ -81,6 +81,7 @@
         <button @onclick="Clicked">Add</button>
         <div class="calc-result">@result</div>
         <div class="calc-result">@selectedResult</div>
+        <div class="calc-result">Iphones is @iphone.Age years old</div>
     </div>
 </div>
 
@@ -92,9 +93,15 @@
 
     GuessingGame game = new GuessingGame();
 
+    Person iphone = new Person();
+
+    protected override void OnInitialized(){
+
+    }
     void Clicked()
     {
-        result = game.Guess(guess).ToString();
+        GuessResult res = game.Guess(guess);
+        result = res.ToString();
     }
 
 
