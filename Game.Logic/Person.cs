@@ -13,10 +13,14 @@ public class Person
     {
         count++;
     }
-    
+
     private static int count = 0;
     public static int TotalPeople()
     {
         return count;
+    }
+    public static void ResetCount()
+    {
+        count = 0;
     }
 }

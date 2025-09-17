@@ -71,6 +71,7 @@
 
 <div class="gradient-bg">
     <div class="calc-container">
+<p>@GetCount()</p>
         <select @bind="selectedResult">
             @foreach(GuessResult val in Enum.GetValues(typeof(GuessResult))) {
             <option value="@((int)val)">@val</option>
@@ -87,7 +88,7 @@
 
 @code {
 
-    int selectedResult = 0;
+    int z = 0;
     int guess = 0;
     string result = "";
 
@@ -96,6 +97,9 @@
     Person iphone = new Person();
 
     protected override void OnInitialized(){
+        Person p = null;
+
+        p.Age;
 
     }
     void Clicked()
@@ -104,5 +108,10 @@
         result = res.ToString();
     }
 
+    static int count = 0;
+    static int GetCount()
+    {
+        return count++;
+    }
 
 }

@@ -1,33 +1,29 @@
 ﻿
 
-List<int> list = [];
 
-int result = -1;
+// int? num = null;
+
+// num = 7;
+
+// Console.WriteLine(num);
+
+// string value = Console.ReadLine()!;
+
+// if (value != null)
+// {
+//     Console.WriteLine(value);
+// }
 
 
-while (result != 0)
-{
-    Console.Write("Type a number: ");
-    string input = Console.ReadLine();
+Person p = new Person();
+p.number = 7;
+p.Number = 7;
+Console.WriteLine(p.Number);
 
-    while (!int.TryParse(input, out result))
-    {
-        Console.WriteLine("You must type a number");
-        Console.Write("Type a number: ");
-        input = Console.ReadLine();
-    }
-    // Console.WriteLine($"You typed: {result}");
 
-    if (result != 0)
-    {
-        list.Add(result);
 
-    }
 
-}
 
-foreach (var v in list)
-{
-    Console.Write(v + ", ");
-}
-// find the average
+
+
+
