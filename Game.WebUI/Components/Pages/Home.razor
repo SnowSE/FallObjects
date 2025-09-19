@@ -1,6 +1,6 @@
 ﻿@page "/"
 @rendermode InteractiveServer
-@using Game.Models
+@using Game.Logic
 
 <PageTitle>Home</PageTitle>
 
@@ -92,6 +92,8 @@
     int guess = 0;
     string result = "";
 
+    string selectedResult = "";
+
     GuessingGame game = new GuessingGame();
 
     Person iphone = new Person();
@@ -99,7 +101,6 @@
     protected override void OnInitialized(){
         Person p = null;
 
-        p.Age;
 
     }
     void Clicked()

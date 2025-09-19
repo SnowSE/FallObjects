@@ -1,4 +1,4 @@
-namespace Game.Models;
+namespace Game.Logic;
 
 public enum GuessResult
 {
