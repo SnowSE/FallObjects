@@ -11,6 +11,9 @@ public class Person
             return DateTime.Now.Year - BirthDate.Year;
         }
     }
+
+    public Contact Contact { get; set; }
+
     public DateTime BirthDate = new DateTime(2007, 9, 8);
 
     private List<Course> courseList;
@@ -79,4 +82,9 @@ public class Person
         Foo((double)f);
      }
     
+}
+
+public class Contact
+{
+    public string First;
 }
