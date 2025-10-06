@@ -1,19 +1,20 @@
 ﻿@page "/"
 @rendermode InteractiveServer
-@using Game.Logic
 
 <PageTitle>Home</PageTitle>
 
 
 
 <style>
-    body, .gradient-bg {
+    body,
+    .gradient-bg {
         min-height: 100vh;
         margin: 0;
         padding: 0;
         background: linear-gradient(135deg, #ff512f 0%, #dd2476 40%, #1fa2ff 100%);
         background-attachment: fixed;
     }
+
     .calc-container {
         display: flex;
         flex-direction: column;
@@ -24,9 +25,10 @@
         padding: 2rem 2.5rem;
         border: 2px solid #fff;
         border-radius: 16px;
-        background: rgba(255,255,255,0.90);
-        box-shadow: 0 4px 24px rgba(106,17,203,0.10);
+        background: rgba(255, 255, 255, 0.90);
+        box-shadow: 0 4px 24px rgba(106, 17, 203, 0.10);
     }
+
     .calc-container input[type="text"] {
         padding: 0.5rem 0.7rem;
         border: 2px solid #2575fc;
@@ -38,11 +40,13 @@
         color: #1a237e;
         transition: border 0.2s, box-shadow 0.2s;
     }
+
     .calc-container input[type="text"]:focus {
         border: 2px solid #6a11cb;
         box-shadow: 0 0 6px #6a11cb44;
         outline: none;
     }
+
     .calc-container button {
         padding: 0.5rem 1.2rem;
         background: linear-gradient(90deg, #ff512f 0%, #dd2476 100%);
@@ -56,10 +60,12 @@
         box-shadow: 0 2px 8px #ff512f22;
         transition: background 0.2s, transform 0.1s;
     }
+
     .calc-container button:hover {
         background: linear-gradient(90deg, #ff512f 0%, #6a11cb 100%);
         transform: translateY(-2px) scale(1.04);
     }
+
     .calc-result {
         margin-top: 0.7rem;
         font-weight: bold;
@@ -71,48 +77,31 @@
 
 <div class="gradient-bg">
     <div class="calc-container">
-<p>@GetCount()</p>
-        <select @bind="selectedResult">
-            @foreach(GuessResult val in Enum.GetValues(typeof(GuessResult))) {
-            <option value="@((int)val)">@val</option>
-            }   
-        </select>
-
-        <input type="text" @bind="guess" placeholder="guess a number" />
-        <button @onclick="Clicked">Add</button>
-        <div class="calc-result">@result</div>
-        <div class="calc-result">@selectedResult</div>
-        <div class="calc-result">Iphones is @iphone.Age years old</div>
+        @if (loggedin)
+        {
+            <p>Welcome, @username!</p>
+            <GuessingGame />
+        }
+        else
+        {
+            <p>Please log in to play the Guessing Game!</p>
+            <input @bind="username" placeholder="Username" />
+            <button @onclick="Login">Log In</button>
+        }
     </div>
 </div>
 
 @code {
 
-    int z = 0;
-    int guess = 0;
-    string result = "";
-
-    string selectedResult = "";
-
-    GuessingGame game = new GuessingGame();
-
-    Person iphone = new Person();
-
-    protected override void OnInitialized(){
-        Person p = null;
+    bool loggedin = false;
+    string username = "";
 
 
-    }
-    void Clicked()
+    void Login()
     {
-        GuessResult res = game.Guess(guess);
-        result = res.ToString();
+        if (!string.IsNullOrWhiteSpace(username))
+        {
+            loggedin = true;
+        }
     }
-
-    static int count = 0;
-    static int GetCount()
-    {
-        return count++;
-    }
-
 }

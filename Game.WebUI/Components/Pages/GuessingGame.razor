@@ -1,0 +1,33 @@
+
+        <h2>Guessing Game</h2>        
+        @* <Item Value="7" /> *@
+
+        <input type="text" @bind="guess" placeholder="guess a number" />
+        <button @onclick="Clicked">Add</button>
+        <div class="calc-result">@result</div>
+        <div class="calc-result">@selectedResult</div>
+
+
+@code {
+
+    
+    int z = 0;
+    int guess = 0;
+    string result = "";
+
+    string selectedResult = "";
+
+    protected override void OnInitialized(){
+
+
+    }
+    void Clicked()
+    {
+    }
+
+    static int count = 0;
+    static int GetCount()
+    {
+        return count++;
+    }
+}

@@ -1,13 +1,27 @@
-﻿
+﻿using System.Numerics;
+using Game.Logic;
 
-Bee b = new Bee();
-b.SetAll();
 
-Console.WriteLine(b.Str1);
 
-int c = b.Str1.Length;
 
-if (b.Str1 == null)
+
+
+
+
+
+
+int multiply(int a, int b)
 {
-    Console.WriteLine("null");
+    if (b > a)
+    {
+        int temp = a;
+        a = b;
+        b = temp;
+    }
+    int product = 0;
+    for (int i = 0; i < b; i++)
+    {
+        product = product + a;
+    }
+    return product;
 }
