@@ -1,6 +1,9 @@
 ﻿using System.Numerics;
 using Game.Logic;
 
+Console.WriteLine(sizeof(double));
+
+
 IEnumerable<int> list2 = [];
 if (list2.Any())
 {
@@ -24,8 +27,18 @@ if (list.Any(i => i == 27))
     Console.WriteLine(item);
 }
 // list.Delete(x => x > 27);
-list = list.Where(i => i > 8);
+list = list.Where(number => number > 8)
+           .Where(j => j < 48);
 PrintList(list);
+
+Dictionary<int, string> dict = new()
+{
+    [1] = "bees",
+    [2] = "tree",
+    [3] = "rutabega"
+};
+var thing = dict.Where(p => p.Key >1 && p.Value != "tree")
+        .FirstOrDefault();
 
 List<string> dlist = list.Select(i => i.ToString() + " int").ToList();
 
