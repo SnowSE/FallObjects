@@ -1,7 +1,7 @@
 namespace Game.Logic;
 
 
-public class Person
+public class Person :IEquatable<Person>, IComparable<Person>
 {
     private int id;
     public int Age
@@ -81,7 +81,16 @@ public class Person
     {
         Foo((double)f);
      }
-    
+
+    public int CompareTo(Person? other)
+    {
+        throw new NotImplementedException();
+    }
+
+    public bool Equals(Person? other)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 public class Contact

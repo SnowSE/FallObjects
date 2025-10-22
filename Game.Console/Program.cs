@@ -1,56 +1,26 @@
 ﻿using System.Numerics;
 using Game.Logic;
 
-Console.WriteLine(sizeof(double));
 
 
-IEnumerable<int> list2 = [];
-if (list2.Any())
-{
-    int item2 = list2.First();
-}
-var item3 = list2.FirstOrDefault();
-if (item3 != 0)
-{
-    Console.WriteLine(item3);
-}
 
-IEnumerable<int> list = [1, 2, 4, 5, 6, 67, 7, 78, 8, 8, 9, 9];
+IEnumerable<int> list = [1, 2, 4, 5, 6, 67, 7, 78, 8, 4, 67, 8, 9, 9];
 PrintList(list);
 
-if (list.Any(i => i == 27))
-{
-    int item = list.First(i => i == 27);
-    Console.WriteLine(item);
 
-    item = list.First();
-    Console.WriteLine(item);
-}
-// list.Delete(x => x > 27);
-list = list.Where(number => number > 8)
-           .Where(j => j < 48);
-PrintList(list);
-
-Dictionary<int, string> dict = new()
-{
-    [1] = "bees",
-    [2] = "tree",
-    [3] = "rutabega"
-};
-var thing = dict.Where(p => p.Key >1 && p.Value != "tree")
-        .FirstOrDefault();
-
-List<string> dlist = list.Select(i => i.ToString() + " int").ToList();
+var list2 = list.Select(i => i.ToString());
+PrintList(list2);
 
 
+// Make another beginner set that can be solved with where, first, select, and delete
 
-
-
-
+void PrintList(IEnumerable<string)
 
 void PrintList(IEnumerable<int> list)
 {
-    list.ToList().ForEach(x => Console.Write(x + ", "));
+    Action<int> print = (s => Console.Write(s + ", "));
+
+    list.ToList().ForEach(print);
     Console.WriteLine("");
 
     // list.ForEach(Print);
